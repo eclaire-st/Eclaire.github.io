@@ -1,0 +1,522 @@
+/* ==========================================================================
+   VARIABLES GLOBALES (Fácil personalización de colores y fuentes)
+   ========================================================================== */
+:root {
+    --primary-color: #3b82f6;       /* Azul moderno para botones principales y enlaces */
+    --secondary-color: #10b981;     /* Verde para acentos, botones secundarios y WhatsApp */
+    --accent-color: #ec4899;        /* Rosa/Fucsia para detalles visuales (Instagram) */
+    --text-dark: #1f2937;           /* Color principal para textos (alta legibilidad) */
+    --text-light: #f9fafb;          /* Color claro para fondos oscuros */
+    --bg-light: #f3f4f6;            /* Fondo general de la web */
+    --bg-card: #ffffff;             /* Fondo de tarjetas y bloques */
+    --border-color: #e5e7eb;        /* Color de bordes y líneas divisorias */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition-speed: 0.3s;
+    --border-radius: 8px;
+}
+
+/* ==========================================================================
+   ESTILOS BASE / RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN (HEADER)
+   ========================================================================== */
+.main-header {
+    background-color: var(--bg-card);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+}
+
+.nav-link:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background var(--transition-speed);
+}
+
+.btn-login:hover {
+    background-color: #2563eb;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: var(--text-light);
+    padding: 6rem 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    transition: transform var(--transition-speed);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   SECCIÓN INTRODUCTORIA
+   ========================================================================== */
+.intro-section {
+    text-align: center;
+    max-width: 800px;
+    margin-top: 2rem;
+}
+
+.intro-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   SECCIÓN DE CATEGORÍAS (FLEXBOX / CARDS)
+   ========================================================================== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 4rem;
+}
+
+.category-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.category-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.category-image {
+    flex: 1;
+    min-height: 250px;
+    background-color: #e5e7eb;
+}
+
+.image-placeholder {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #9ca3af;
+}
+
+.category-info {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.category-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.category-info p {
+    margin-bottom: 1.5rem;
+    color: #4b5563;
+}
+
+.btn-category {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: opacity var(--transition-speed);
+}
+
+.btn-category:hover {
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER) Y REDES SOCIALES
+   ========================================================================== */
+.main-footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 3rem 0 1rem 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #374151;
+}
+
+.footer-brand h3 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.footer-socials h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.social-icon.whatsapp {
+    background-color: var(--secondary-color);
+}
+
+.social-icon.instagram {
+    background-color: var(--accent-color);
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   PÁGINA DE LOGIN (MODULADO CON NUEVOS ESTILOS)
+   ========================================================================== */
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.back-nav {
+    padding: 1.5rem 5%;
+}
+
+.btn-back {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.login-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-container {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.input-icon-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.input-icon-wrapper input {
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color var(--transition-speed);
+}
+
+.input-icon-wrapper input:focus {
+    border-color: var(--primary-color);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background var(--transition-speed);
+}
+
+.btn-submit:hover {
+    background-color: #2563eb;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* BANNER DE ERROR (JS) */
+.error-banner {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #fca5a5;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el menú hamburguesa */
+    }
+
+    .nav-menu {
+        display: none; /* Se oculta por defecto en móviles, JS lo activa */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-card);
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .category-card, .category-card.reverse {
+        flex-direction: column; /* Apila las columnas en tablets/móviles */
+    }
+
+    .category-info {
+        padding: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
